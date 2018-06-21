@@ -1,2 +1,2 @@
-web: python mytornado.py
+web: gunicorn app:app --log-file=-
 
