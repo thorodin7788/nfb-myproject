@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
+    the_time = datetime.now().strftime("%A, %d %b %Y %l:%M:%S %p")
 
     return """
     <h1>Hello heroku</h1>
