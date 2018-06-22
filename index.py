@@ -13,6 +13,11 @@ app.layout = html.Div([
     html.Div(id='page-content')
 ])
 
+import ssl
+from pymongo import MongoClient
+mongo_uri = "mongodb+srv://nfbadmin:thornypowerpack@cluster0-v612w.mongodb.net/mysample"
+conn = MongoClient(mongo_uri, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
+db = conn.mysample
 
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
@@ -24,7 +29,8 @@ def display_page(pathname):
     elif pathname == '/my3/app3':
          return app3.layout
     else:
-        return 'Hello world'
+        rec = db.student.find()[0]
+        return rec['name']
 
 @server.route("/")
 def MyDashApp():
