@@ -15,7 +15,7 @@ app.layout = html.Div([
 
 import ssl
 from pymongo import MongoClient
-mongo_uri = "mongodb+srv://nfbadmin:thornypowerpack@cluster0-v612w.mongodb.net/mysample"
+mongo_uri = "mongodb+srv://nfbadmin:thornypowerpack@cluster0-v612w.mongodb.net/test"
 conn = MongoClient(mongo_uri, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 db = conn.mysample
 
